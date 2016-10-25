@@ -16,7 +16,7 @@
 /*Exercise 4.  Instruct the following function to display the message "My name is Lee, Brrruuuce Lee!" in a new paragraph element after the button is clicked.*/
 
   function kungfu(){
-  document.getElementById("lee").innerHTML = "My name is Lee, Brrruuuce Lee!";
+  document.getElementById("beWater").innerHTML = "My name is Lee, Brrruuuce Lee!";
   }
 
 
@@ -49,6 +49,7 @@ function sayAgainQuote(){
 /*Exercise 7.  Generate a random quote from clicking on a button*/
 var quotes = ["It's a funny thing about comin' home. Looks the same, smells the same, feels the same. You'll realize what's changed is you.", "Momma? Momma? Some days, I feel different than the day before.", "Some people, were born to sit by a river. Some get struck by lightning. Some have an ear for music. Some are artists. Some swim. Some know buttons. Some know Shakespeare. Some are mothers. And some people, dance.", "For what it's worth, it's never too late to be whoever you want to be."];
 
+
 document.getElementById("change").addEventListener('click', sayQuotes);
 
 function sayQuotes(){
@@ -56,17 +57,23 @@ var randomX = Math.floor(Math.random()*quotes.length);
   document.getElementById('displayQuotes').innerHTML = quotes[randomX];
 }
 
+// Alternate Solution:
+// change.addEventListener("click", randomQ);
+
+// function randomQ(){
+//   displayQuotes.innerHTML = quotes[Math.floor(Math.random()*quotes.length)];
+// }
+
                                                    
 /*Exercise 8. Create an event listener that will show and hide the message when clicking on the button.*/
 
-var moneyButton = document.getElementById('hideandseek');moneyButton.addEventListener("click", makeMoney);
+var moneyButton = document.getElementById('hideandseek').addEventListener("click", makeMoney);
 
 function makeMoney(){
-  var getPaid = document.getElementById("showmoney");
-  if(getPaid.style.display === "none"){
-    getPaid.style.display = "block";
+  if(showmoney.style.display === "none"){
+    showmoney.style.display = "block";
   }else{
-    getPaid.style.display = "none";
+    showmoney.style.display = "none";
   }
 }
 
@@ -113,6 +120,39 @@ function getList(){
       showPrice.style.display = 'none';
   }
 }
+
+// Alternate Solution
+// for(var i=0; i<orders.length; i++){
+//   console.log(orders[i]);
+//   console.log(orders[i].product);
+//   console.log(orders[i].price);
+
+//   var productList2 = document.createElement('div');
+//   productList2.className = "pList";
+//   productList2.innerHTML = orders[i].product;
+//   myOrders.appendChild(productList2);
+
+//   var priceList = document.createElement('div');
+//   priceList.className = "prices";
+//   priceList.innerHTML = orders[i].price;
+//   myOrders.appendChild(priceList);
+// }
+
+// var fullList = document.getElementsByClassName('pList');
+
+// for(var j=0; j<fullList.length; j++){
+//   console.log(fullList[j]);
+//   fullList[j].addEventListener("click", showP);
+// }
+
+// function showP(){
+//   var x = this.querySelectorAll(".price")[0]; /* "this" is a keyword, referring to the element you are currently on. */
+//   if(x.style.display === "none"){
+//     x.style.display = "block";}
+//       else{
+//         x.style.display = "none";
+//       }
+//     }
 
 };
 
